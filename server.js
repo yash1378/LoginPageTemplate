@@ -23,7 +23,7 @@ const {
 const mongoose = require("mongoose");
 // connecting to the database
 mongoose
-  .connect('mongodb+srv://yashd:ramlal@nodeexpressproject.qp0arwg.mongodb.net/LoginData?retryWrites=true&w=majority')
+  .connect(`mongodb+srv://${process.env.cluster_name}:${process.env.password}@nodeexpressproject.qp0arwg.mongodb.net/${process.env.Database_name}?retryWrites=true&w=majority`)
   .then(() => {
     console.log("MongoDB connection is established successfully! 🎉");
   });
