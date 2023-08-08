@@ -212,8 +212,8 @@ app.get("/refresh_token", async (req, res) => {
     secure: true,
     auth: {
       // TODO: replace `user` and `pass` values from <https://forwardemail.net>
-      user: 'yashdugriyal1066@gmail.com',
-      pass: 'tgurzzqcptydammg'
+      user: process.env.sender,
+      pass: process.env.smtp_password
     }
   });
 
@@ -240,7 +240,7 @@ app.get("/refresh_token", async (req, res) => {
       // send mail with defined transport object
   
       const info = await transporter.sendMail({
-        from: "yashdugriyal1066@gmail.com", // sender address
+        from: process.env.sender, // sender address
         to: email, // list of receivers
         subject: "Hello ✔", // Subject line
         text: "Hello world?", // plain text body
